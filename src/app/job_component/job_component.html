@@ -1,0 +1,20 @@
+<div *ngIf="jobs">
+  <h1>Jobs</h1>
+  <ul>
+    <li *ngFor="let job of jobs">
+      {{ job.title }} - {{ job.company }}
+      <button (click)="editJob(job.id)">Edit</button>
+      <button (click)="deleteJob(job.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="showForm">
+  <h2>{{ isNewJob ? 'Create Job' : 'Edit Job' }}</h2>
+  <form (submit)="isNewJob ? createJob() : updateJob()">
+    <input type="text" [(ngModel)]="job.title" name="title" placeholder="Title" required>
+    <input type="text" [(ngModel)]="job.company" name="company" placeholder="Company" required>
+    <!-- Add other input fields for location, description, salary, job type, etc. -->
+    <button type="submit">{{ isNewJob ? 'Create' : 'Update' }}</button>
+  </form>
+</div>
