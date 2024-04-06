@@ -1,0 +1,27 @@
+<form (submit)="onLogin()">
+  import { FormsModule } from '@angular/forms';
+
+  @NgModule({
+    imports: [
+      FormsModule
+    ],
+    // other module configurations
+  })
+  export class LoginComponent {
+    // component code
+  }
+  <input type="email" [(ngModel)]="credentials.email" name="email" placeholder="Email" required>
+  import { FormsModule } from '@angular/forms';
+
+  @NgModule({
+    imports: [
+      FormsModule
+    ],
+    // other module configurations
+  })
+  export class LoginComponent {
+    // component code}
+
+  <button type="submit">{{Login}}</button>
+</form>
+<div *ngIf="loginError" class="error-message">Login information is incorrect. Please try again.</div>

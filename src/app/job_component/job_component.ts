@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from './job.model';
-import { JobService } from '../job.service';
+import { JobService } from './job.service';
 
 @Component({
   selector: 'app-job',
-  templateUrl: './job.component.html',
-  styleUrls: ['./job.component.css']
+  templateUrl: './job_component.html',
+  styleUrls: ['./job_component.css']
 })
 export class JobComponent implements OnInit {
   jobs: Job[];
@@ -48,7 +48,8 @@ export class JobComponent implements OnInit {
   }
 
   updateJob(): void {
-    this.jobService.updateJob(this.job.id, this.job).subscribe(() => {
+    const jobId = Number(this.job.id); // Convert id to number
+    this.jobService.updateJob(jobId, this.job).subscribe(() => {
       this.resetForm();
       this.getJobs();
     });
